@@ -3,11 +3,23 @@ var assert = require('assert');
 // we need 8 test cases. I've provided the first 2
 let inputs = [
   ["hello", 4],
-  ["", 2]
+  ["", 2],
+  ["What's up", 3],
+  ["Not Much", 4],
+  ["Well that's great", 7],
+  ["good talk", 5],
+  ["lets do it", 7],
+  ["again", 9]
 ]
 
 let outputs = [
   "o",
+  undefined,
+  "t",
+  "M",
+  "a",
+  "t",
+  " ",
   undefined
 ]
 
@@ -21,7 +33,8 @@ f("abc", 0); // a
 
 */
 function f(str, index) {
-    
+    var array = str.split("");
+    return array[index];
 }
 
 function runTest(i) {
