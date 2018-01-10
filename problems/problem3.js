@@ -8,7 +8,7 @@ let inputs = [
   [2, 6],
   [2, 5],
   [3, 2],
-  [4, 3]
+  [undefined, 3]
 ]
 
 let outputs = [
@@ -18,7 +18,7 @@ let outputs = [
   8,
   7,
   5,
-  7
+  undefined
 ]
 
 /*
@@ -26,20 +26,27 @@ Make this function return the sum of the two numbers that are passed to it. If o
 */
 function f(x, y) {
   // this will do the two number thing but not the NaN or undefined string
-  if (x === NaN || y === NaN) {
+  //console.log("x is ", x, "y is ", y);
+
+  if (isNaN(x) || isNaN(y)) {
     return undefined;
-  } else {
-    var result = x + y;
-    return result;
   }
+
+  var result = x + y;
+  return result;
 
 }
 
 function runTest(i) {
   var expected = outputs[i];
   var actual = f(...inputs[i]); //... is a spread operator that will take the array and break it into the individualt numbers
+ //console.log("expected is ", expected, "actual is ", actual);
   assert.deepEqual(actual, expected);
 }
+
+
+
+
 
 runTest(0);
 runTest(1);
