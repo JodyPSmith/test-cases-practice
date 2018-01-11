@@ -27,7 +27,7 @@ function f(x, y) {
 function runTest(i) {
     if(i > inputs.length) throw new Error("You do not have enough test cases");
     var expected = outputs[i];
-    var actual = f(...inputs[i]);
+    var actual = f(...inputs[i]); // spread operator
     assert.deepEqual(actual, expected);
 }
 
